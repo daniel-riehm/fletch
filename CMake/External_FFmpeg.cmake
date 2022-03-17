@@ -45,6 +45,11 @@ if (WIN32)
   fletch_external_project_force_install(PACKAGE FFmpeg)
 
 else ()
+  if(fletch_ENABLE_x264)
+    list(APPEND ffmpeg_DEPENDS x264)
+    set(_FFmpeg_x264 --enable-libx264 --enable-gpl)
+  endif()
+
   include(External_yasm)
   set(fletch_YASM ${fletch_BUILD_PREFIX}/src/yasm-build/yasm)
   set(_FFmpeg_yasm --yasmexe=${fletch_YASM})
@@ -79,9 +84,11 @@ else ()
        )
   endif()
   set(FFMPEG_CONFIGURE_COMMAND
+    PKG_CONFIG_PATH=${fletch_BUILD_INSTALL_PREFIX}/lib/pkgconfig
     ${fletch_BUILD_PREFIX}/src/FFmpeg/configure
     --prefix=${fletch_BUILD_INSTALL_PREFIX}
     --enable-runtime-cpudetect
+    ${_FFmpeg_x264}
     ${_FFmpeg_yasm}
     ${_FFmpeg_zlib}
     ${_shared_lib_params}

@@ -88,6 +88,13 @@ set(yasm_version "1.3.0")
 set(yasm_url "https://github.com/yasm/yasm/archive/v1.3.0.tar.gz")
 set(yasm_md5 "38802696efbc27554d75d93a84a23183")
 
+# x264
+set(x264_version "bfc87b7a330f75f5c9a21e56081e4b20344f139e")
+set(x264_url "https://code.videolan.org/videolan/x264/-/archive/${x264_version}/x264-${x264_version}.tar.bz2")
+set(x264_md5 "fd71fead6422ccb5094207c9d2ad70bd")
+set(x264_dlname "x264-${x264_version}.tar.bz2")
+list(APPEND fletch_external_sources x264)
+
 # FFmpeg
 set(_FFmpeg_supported TRUE)
 if (fletch_ENABLE_FFmpeg OR fletch_ENABLE_ALL_PACKAGES)
