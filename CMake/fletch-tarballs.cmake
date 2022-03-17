@@ -88,6 +88,13 @@ set(yasm_version "1.3.0")
 set(yasm_url "https://github.com/yasm/yasm/archive/v1.3.0.tar.gz")
 set(yasm_md5 "38802696efbc27554d75d93a84a23183")
 
+# msys2
+set(msys2_version "20220128")
+set(msys2_url "https://repo.msys2.org/distrib/x86_64/msys2-base-x86_64-${msys2_version}.tar.xz")
+set(msys2_md5 "48a350a4679cb329405b00137dee9809")
+set(msys2_dlname "msys2-${msys2_version}.tar.xz")
+list(APPEND fletch_external_sources msys2)
+
 # x264
 set(x264_version "bfc87b7a330f75f5c9a21e56081e4b20344f139e")
 set(x264_url "https://code.videolan.org/videolan/x264/-/archive/${x264_version}/x264-${x264_version}.tar.bz2")
