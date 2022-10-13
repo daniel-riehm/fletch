@@ -6,12 +6,20 @@ if (PYTHON_EXECUTABLE)
   set(pybind_PYTHON_ARGS -DPYTHON_EXECUTABLE:FILEPATH=${PYTHON_EXECUTABLE})
 endif()
 
+set(pybind11_PATCH ${fletch_SOURCE_DIR}/Patches/pybind11)
+set(pybind11_PATCH_COMMAND ${CMAKE_COMMAND}
+  -Dpybind11_patch=${pybind11_PATCH}
+  -Dpybind11_source=${fletch_BUILD_PREFIX}/src/pybind11
+  -P ${pybind11_PATCH}/Patch.cmake
+  )
+
 ExternalProject_Add(pybind11
   URL ${pybind11_url}
   URL_MD5 ${pybind11_md5}
   DOWNLOAD_NAME ${pybind11_dlname}
   ${COMMON_EP_ARGS}
   ${COMMON_CMAKE_EP_ARGS}
+  PATCH_COMMAND ${pybind11_PATCH_COMMAND}
   CMAKE_ARGS
     ${COMMON_CMAKE_ARGS}
     # PYTHON_EXECUTABLE addded to cover when it's installed in nonstandard loc.
