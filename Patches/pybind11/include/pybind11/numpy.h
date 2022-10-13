@@ -27,6 +27,7 @@
 #if defined(_MSC_VER)
 #  pragma warning(push)
 #  pragma warning(disable: 4127) // warning C4127: Conditional expression is constant
+using ssize_t = SSIZE_T;
 #endif
 
 /* This will be true on all flat address space platforms and allows us to reduce the
