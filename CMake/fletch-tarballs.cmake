@@ -558,9 +558,9 @@ set(Darnet_dlname "darknent-d206b6da7af1f4.zip")
 list(APPEND fletch_external_sources Darknet)
 
 # pybind11
-set(pybind11_version "2.5.0")
+set(pybind11_version "2.10.0")
 set(pybind11_url "https://github.com/pybind/pybind11/archive/v${pybind11_version}.tar.gz")
-set(pybind11_md5 "1ad2c611378fb440e8550a7eb6b31b89")
+set(pybind11_md5 "da561ebf81594930d368a9f9aae0d035")
 set(pybind11_dlname "pybind11-${pybind11_version}.tar.gz")
 list(APPEND fletch_external_sources pybind11)
 
